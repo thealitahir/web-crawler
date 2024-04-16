@@ -34,7 +34,7 @@
 
 6) Website Used for scrapping is `https://github.com/explore`, add it in WEBSITE_URL environment variable
 
-7) Port Used for docker is `3001`
+7) Port Used for docker is `3001` so add same port in environment variable
 
 8) Run server using command `docker compose up`
 
