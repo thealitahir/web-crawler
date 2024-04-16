@@ -34,6 +34,8 @@
 
 6) Website Used for scrapping is `https://github.com/explore`, add it in WEBSITE_URL environment variable
 
-7) Run server using command `docker compose up`
+7) Port Used for docker is `3001`
 
-8) Path of file saved will be `src/common/files`
+8) Run server using command `docker compose up`
+
+9) Path of file saved will be `src/common/files`
