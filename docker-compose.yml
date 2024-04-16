@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  webcrawler-redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  website-crawler:
+    build: .
+    ports:
+      - "3001:3001"
+    depends_on:
+      - webcrawler-redis
