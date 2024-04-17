@@ -1,10 +1,11 @@
 // src/crawler/job.ts
+import { Logger } from '@nestjs/common';
 import * as cheerio from 'cheerio';
 import * as path from 'path';
-const fs = require('fs');
+import * as fs from 'fs';
 
 export const WebScrapping = async (webUrl) => {
-    console.log('website crawling started...');
+    Logger.log('website crawling started...');
     try {
         const url = encodeURI(webUrl);
         // Fetching Dom Data
@@ -13,17 +14,17 @@ export const WebScrapping = async (webUrl) => {
             const html = await response.text();
             getRepositoriesData(html)
         } else {
-            console.error('Failed to fetch:', response.status);
+            Logger.log('Failed to fetch:', response.status);
         }
     } catch (error) {
-        console.error('Error while scraping:', error);
+        Logger.log('Error while scraping:', error);
     }
 }
 
 const getRepositoriesData = (html) => {
     const $ = cheerio.load(html);
     const folderPath = 'src/common/files'; // Folder Path
-    const filename = path.join(folderPath, 'github_scraped_data.json');
+    const filename = path.join(folderPath, `github_scraped_data.json`);
     const repositories = [];
     // Extracting Relevant Data from Dom
     $('article.border.rounded.color-shadow-small.color-bg-subtle.my-4').each((index, element) => {
@@ -64,6 +65,6 @@ const getRepositoriesData = (html) => {
         // Write data to JSON file
         fs.writeFileSync(filename, JSON.stringify(repositories, null, 2));
     } catch (error) {
-        console.error('Error writing to file:', error);
+        Logger.log('Error writing to file:', error);
     }
 }

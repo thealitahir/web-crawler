@@ -3,7 +3,7 @@
 # # Add any additional configuration or setup steps here
 
 # Use Node.js LTS version as base image
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Set working directory inside the container
 WORKDIR /app

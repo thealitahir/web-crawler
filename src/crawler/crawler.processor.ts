@@ -50,7 +50,6 @@ export class CrawlerProcessor {
   @OnQueueCompleted()
   async onCompleted(job: Job<unknown>) {
     // Log job completion status
-    Logger.log(`Job ${job.id} has been finished`);
     await this.crawlerService.crawlWebsite()
   }
 
@@ -67,6 +66,6 @@ export class CrawlerProcessor {
   @OnQueueError()
   onError(error) {
     // Log job error status
-    console.log('Queue Job Error', error)
+    Logger.log(`Queue Job Error`, error);
   }
 }

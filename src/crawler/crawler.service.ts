@@ -2,13 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { InjectQueue } from '@nestjs/bull';
 import { ConfigService } from '@nestjs/config';
 
-import { Queue } from 'bull';
+import { Job, Queue } from 'bull';
 
 import { WebScrapping } from 'src/common/strategies/crawler.strategy';
 
 @Injectable()
 export class CrawlerService {
-  constructor(@InjectQueue('website-crawler') private readonly queue: Queue, private configService: ConfigService) { }
+  constructor(@InjectQueue('website-crawler') private readonly queue: Queue, private configService: ConfigService) {}
 
   /**
   * Returns Nothing.
@@ -21,6 +21,7 @@ export class CrawlerService {
   async addCrawlJob() {
     // await this.queue.add('web-crawler', {}, { repeat: { cron: '*/10 * * * * *' } }); // Job Queue Every 10 Seconds
     await this.queue.add('web-crawler', {}, { repeat: { cron: '*/10 * * * *' } }); // Job Queue Every 10 Minutes
+    return
   }
 
   /**

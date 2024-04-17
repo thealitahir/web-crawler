@@ -13,7 +13,7 @@ dotenv.config()
     BullModule.forRoot({
       redis: {
         host: process.env.REDIS_HOST,
-        port: 6379,
+        port: Number(process.env.REDIS_PORT),
       },
     }),
     BullModule.registerQueue({
