@@ -5,7 +5,7 @@
 
 3) Techstack used for backend is Nest JS
 
-4) Packages Used in Application are [Axios,Bull,Cheerio]
+4) Packages Used in Application are [Bull,Cheerio]
 
 5) Install Redis Locally on your Machine
 
@@ -28,7 +28,7 @@
 
 3) Techstack used for backend is Nest JS
 
-4) Packages Used in Application are [Axios,Bull,Cheerio]
+4) Packages Used in Application are [Bull,Cheerio]
 
 5) Add `webcrawler-redis` in REDIS_HOST environment variable
 

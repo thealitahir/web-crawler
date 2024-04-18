@@ -26,8 +26,6 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.0",
-    "@nestjs/schedule": "^4.0.1",
-    "axios": "^1.6.8",
     "bull": "^4.12.2",
     "bull-arena": "^4.2.0",
     "cheerio": "^1.0.0-rc.12",
